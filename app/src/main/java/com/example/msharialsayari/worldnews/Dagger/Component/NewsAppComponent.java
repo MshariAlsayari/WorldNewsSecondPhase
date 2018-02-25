@@ -16,7 +16,6 @@ import dagger.Component;
 public interface NewsAppComponent {
 
 
-    //Retrofit provideRetrofit();
 
     void inject(NewsTab target);
 

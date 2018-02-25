@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">World News</string>
     <string name="PB">gone</string>
+
+    <string name="General">General</string>
+    <string name="Business">Business</string>
+    <string name="Entertainment">Entertainment</string>
+    <string name="Gaming">Gaming</string>
+    <string name="Music">Music</string>
+    <string name="Politics">Politics</string>
+    <string name="Sport">Sport</string>
+    <string name="Technology">Technology</string>
+    <string name="science_and_nature">science and nature</string>
+    <string name="More_at">More at</string>
+
 </resources>

@@ -1,10 +1,13 @@
 
 package com.example.msharialsayari.worldnews.Retrofit.Model.Articles;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Article {
+public class Article implements Parcelable {
 
 
 
@@ -84,4 +87,13 @@ public class Article {
         this.publishedAt = publishedAt;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }

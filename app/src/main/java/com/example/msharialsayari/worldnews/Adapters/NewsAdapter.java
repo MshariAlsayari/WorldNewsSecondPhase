@@ -1,7 +1,6 @@
 package com.example.msharialsayari.worldnews.Adapters;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.msharialsayari.worldnews.NewsActivity;
 import com.example.msharialsayari.worldnews.R;
 import com.example.msharialsayari.worldnews.R2;
 import com.example.msharialsayari.worldnews.Retrofit.Model.Articles.Article;
@@ -38,7 +38,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
     @Override
     public NewsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_holder, parent, false);
+       // View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_holder, parent, false);
+        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.another_design_card_view, parent, false);
         NewsHolder holder = new NewsHolder(row);
         return holder;
     }
@@ -57,21 +58,21 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
 
     class NewsHolder extends RecyclerView.ViewHolder {
-        @BindView(R2.id.textViewTitle)
+        @BindView(R.id.textViewTitle)
         TextView title;
-
-        @BindView(R2.id.textViewDescreption)
-        TextView description;
-
-        @BindView(R2.id.textViewAuthor)
-        TextView author;
-
-        @BindView(R2.id.textViewPublishedDate)
-        TextView publishedDate;
-
+//
+//        @BindView(R2.id.textViewDescreption)
+//        TextView description;
+//
+//        @BindView(R2.id.textViewAuthor)
+//        TextView author;
+//
+//        @BindView(R2.id.textViewPublishedDate)
+//        TextView publishedDate;
+//
         @BindView(R2.id.cardView)
         CardView mycard;
-
+//
         @BindView(R2.id.imageView)
         ImageView myImage;
 
@@ -85,19 +86,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         public void bind(final Article article) {
 
             title.setText(article.getTitle());
-            description.setText(article.getDescription());
-            publishedDate.setText(article.getPublishedAt());
-            if (article.getAuthor() == null || article.getAuthor().equals(""))
-                author.setText("the author isn't available");
-            else
-                author.setText(article.getAuthor().toString());
 
             Picasso.with(itemView.getContext()).load(article.getUrlToImage()).into(myImage);
+            myImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
             mycard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(article.getUrl()));
-                    view.getContext().startActivity(browserIntent);
+                    Intent i = new Intent(itemView.getContext(), NewsActivity.class);
+                    i.putExtra("Title", article.getTitle());
+                    i.putExtra("Description", article.getDescription());
+                    i.putExtra("PublishedDate", article.getPublishedAt());
+                    i.putExtra("Author" , article.getAuthor());
+                    i.putExtra("Image" ,  article.getUrlToImage());
+                    i.putExtra("Url" , article.getUrl());
+                    view.getContext().startActivity(i);
                 }
             });
 

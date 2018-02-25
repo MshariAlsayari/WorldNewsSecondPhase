@@ -27,6 +27,19 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 
+    //compile 'io.reactivex.rxjava2:rxjava:2.0.0-DP0-SNAPSHOT'
+
+    // Dagger core dependencies
+    // Dagger Android dependencies
+    // Use this instead if you're using support library
+    
+
+    //OKHttp
+    
+
+
+
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.jakewharton:butterknife:8.8.1'
@@ -38,30 +51,17 @@ dependencies {
     compile 'com.daimajia.androidanimations:library:2.3@aar'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:design:25.3.1'
-    testCompile 'junit:junit:4.12'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.android.support:gridlayout-v7:25.3.1'
-
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.2.7'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    //compile 'io.reactivex.rxjava2:rxjava:2.0.0-DP0-SNAPSHOT'
-
-    // Dagger core dependencies
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
     compile 'com.google.dagger:dagger:2.10'
-// Dagger Android dependencies
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.10'
     compile 'com.google.dagger:dagger-android:2.10'
-// Use this instead if you're using support library
     compile 'com.google.dagger:dagger-android-support:2.10'
-
-    //OKHttp
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.squareup.okio:okio:1.7.0'
-
-
-
-
-
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.10'
 }
