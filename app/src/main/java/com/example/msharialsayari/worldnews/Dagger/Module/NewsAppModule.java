@@ -25,7 +25,7 @@ public class NewsAppModule {
     public Retrofit createRetrofitObject (){
 
        return new Retrofit.Builder()
-                .baseUrl("https://newsapi.org/v1/")
+                .baseUrl("https://newsapi.org/v/")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
